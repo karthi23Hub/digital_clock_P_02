@@ -5,6 +5,10 @@
     src: url('../font/digital-dream/DIGITALDREAM.ttf');
 }
 
+:root{
+    --light-color:rgb(234,32,39);
+}
+
 *{
     margin: 0%;
     padding: 0%;
@@ -15,7 +19,7 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-color: #2C3A47;
+    background-color: rgb(10, 15, 20);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,15 +39,37 @@ h2{
     width: 600px;
     height: 300px;
     border: 30px solid #9b7702;
+    background-color: #111;
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    color: #ffff;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
     line-height: 240px;
 }
 
 .clock{
     font-family:DIGITALDREAM;
+    color: #ffff;
+    text-shadow: 0 0 20px var(--light-color);
+    position: relative;
+}
+.clock::after{
+ content: attr(data-text);
+ position: absolute;
+ top: 0%;
+ left: 40px;
+filter: blur(30px);
+}
+
+.clock::before{
+    content: ' ';
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: var(--light-color);
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    filter: blur(40px);
 }
